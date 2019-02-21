@@ -11,4 +11,9 @@ func main() {
 			fmt.Println(i, "odd")
 		}
 	}
+
+	// Other uses with if statement
+	// if el, ok := elements["Li"]; ok {
+	// 	fmt.Println(el["name"], el["state"])
+	// }
 }
