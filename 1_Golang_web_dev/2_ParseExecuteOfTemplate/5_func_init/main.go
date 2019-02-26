@@ -11,7 +11,7 @@ var tpl *template.Template
 
 // Init the template with pass a folder that contains all the files
 func init() {
-	/* Must is a wrapper function used to verifyt that a templateis valid
+	/* Must is a wrapper function used to verify that a template is valid
 	 * during the parsing.*/
 	tpl = template.Must(template.ParseGlob("templates/*"))
 }
