@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Slice</title>
+</head>
+<body>
+  <h2>The best Players</h2>
+  <ul>
+  {{range $player := .Jugadores}}
+    <li>Player: {{$player.Name}}</li>
+    <li>No: {{$player.No}}</li>
+  {{end}}
+  </ul>
+  <h2>The best Teams</h2>
+  <ul>
+  {{range $team := .Equipos}}
+    <li>Name: {{$team.Name}}</li>
+    <li>Years: {{$team.Years}}</li>
+    <li>No. Players: {{$team.NoPlayers}}</li>
+  {{end}}
+  </ul>
+</body>
+</html>
