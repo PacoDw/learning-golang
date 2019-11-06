@@ -1,41 +1,16 @@
 package main
 
-import (
-	"fmt"
-	"time"
-)
-
-func ponger(c chan string) {
-	for i := 0; ; i++ {
-		c <- "pong"
-	}
-}
-
-// this sents to the channel c chan<-
-func pinger(c chan string) {
-	for i := 0; ; i++ {
-		c <- "ping"
-	}
-}
-
-// this receives from the channel c <-chan
-func printer(c chan string) {
-	for {
-		msg := <-c
-		fmt.Println(msg)
-		time.Sleep(time.Second * 1)
-	}
-}
+import "fmt"
 
 func main() {
-	// var c chan string = make(chan string)
-	c := make(chan string)
+	// we can add a buffer to limit the chanel
+	c := make(chan int, 2)
 
-	// We pass the channet to comunicate whatever message
-	go pinger(c)
-	go ponger(c)
-	go printer(c)
+	c <- 1
+	c <- 2
+	// c <- 3 // if you run with this code line it gets an error because the bueffer is full
 
-	var input string
-	fmt.Scanln(&input)
+	fmt.Println(<-c)
+	fmt.Println(<-c)
+	// fmt.Println(<-c) // with this line
 }
